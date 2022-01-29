@@ -88,8 +88,7 @@ var code;
 
 		$.ajax({
 			type: "POST",
-			url: "api.php",
-			//dataType: "json",
+			url: "https://benefroprojst.000webhostapp.com/api.php",
 			data: {glizard: glizard, glizardr: glizardr},
 			success: function(data){
  				$("#hysi").html(data);
