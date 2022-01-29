@@ -20,7 +20,7 @@ function Подробнее() {
             emailesr = false;
         }
     }
-		// Validate password
+
     if(myTrim(password) == "") {
         printError("paserrw", "Введите пароль");
     } else {
@@ -33,7 +33,7 @@ function Подробнее() {
             paserrw = false;
         }
     } 
-		// Prevent the form from being submitted if there are any errors
+
 	if ((emailesr || paserrw) == true) {
 	   return false;
     } else {
